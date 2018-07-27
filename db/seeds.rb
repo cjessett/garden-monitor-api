@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-valve = Valve.create(name: 'proto_valve')
+user = User.create(email: 'test@me.com', password: '123')
+
+valve = Valve.create(name: 'proto_valve', user: user)
 
 sensors = [
-  { name: 'esp8266', valve: valve },
-  { name: 'ss1' },
+  { name: 'esp8266', valve: valve, user: user },
+  { name: 'ss-1', valve: valve, user: user },
 ]
 
 Sensor.create(sensors)

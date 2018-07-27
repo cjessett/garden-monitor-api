@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_26_203817) do
+ActiveRecord::Schema.define(version: 2018_07_27_001153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "devices", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sensors", force: :cascade do |t|
     t.string "name"
@@ -21,6 +26,8 @@ ActiveRecord::Schema.define(version: 2018_07_26_203817) do
     t.bigint "valve_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_sensors_on_user_id"
     t.index ["valve_id"], name: "index_sensors_on_valve_id"
   end
 
@@ -36,7 +43,11 @@ ActiveRecord::Schema.define(version: 2018_07_26_203817) do
     t.string "serial"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_valves_on_user_id"
   end
 
+  add_foreign_key "sensors", "users"
   add_foreign_key "sensors", "valves", column: "valve_id"
+  add_foreign_key "valves", "users"
 end
