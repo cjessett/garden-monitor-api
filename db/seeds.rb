@@ -8,11 +8,11 @@
 
 user = User.create(email: 'test@me.com', password: '123')
 
-valve = Valve.create(name: 'proto_valve', user: user)
+valve = Valve.create(name: 'valve 1', serial: 'proto_valve', user: user)
 
 sensors = [
-  { name: 'esp8266', valve: valve, user: user },
-  { name: 'ss-1', valve: valve, user: user },
+  { name: 'sensor 1', serial: 'esp8266', valve: valve, user: user },
+  { name: 'sensor 2', serial: 'ss-1', valve: valve, user: user },
 ]
 
 Sensor.create(sensors)
