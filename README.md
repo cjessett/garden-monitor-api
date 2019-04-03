@@ -1,7 +1,7 @@
-# README
+# Garden Monitor API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For use with this [Soil Sensor](https://github.com/cjessett/soil-sensor) and [Valve](https://github.com/cjessett/valve-control)
+
 
 Things you may want to cover:
 
